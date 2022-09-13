@@ -3,6 +3,7 @@ $server = "172.19.202.77";
 $user = "registros";
 $password = "R3g1xtr0s!";
 $dbName = "registros";
+$dbTable = "attVerifierFFRD";
 //$name = html_entity_decode($_POST['nnn'], ENT_QUOTES | ENT_HTML401, "UTF-8");
 $name = utf8_decode($_POST['nnn']);
 $loc = $_POST['loca'];
@@ -17,8 +18,8 @@ try {
 } catch (PDOException $e) {
     exit("Error: " . $e->getMessage());
 }
-function validaExistencia($canal,$email){
-    $sql = "SELECT * FROM foroMJ WHERE email='".$email."'";
+function validaExistencia($canal,$email,$table){
+    $sql = "SELECT * FROM ".$table." WHERE email='".$email."'";
     $query = $canal->prepare($sql);
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -29,10 +30,10 @@ function validaExistencia($canal,$email){
         return true;
     }
 }
-function insertaValor($conn,$nom,$mail,$dater,$loc){
+function insertaValor($conn,$nom,$mail,$dater,$loc,$table){
     if(validaExistencia($conn,$mail)){
         ////////////// Insertar a la tabla la información generada /////////
-        $sql="insert into foroMJ(nombre,email,fecha,location) values(:nombre,:email,:fecha,:location)";
+        $sql="insert into ".$table."(nombre,email,fecha,location) values(:nombre,:email,:fecha,:location)";
         $sql = $conn->prepare($sql);
         $sql->bindParam(':nombre', $nom);
         $sql->bindParam(':email', $mail);
@@ -75,5 +76,5 @@ function insertaValor($conn,$nom,$mail,$dater,$loc){
                 </div>';
     }
 }
-insertaValor($conexion,$name,$email,$dater,$loc);
+insertaValor($conexion,$name,$email,$dater,$loc,$dbTable);
 ?>
