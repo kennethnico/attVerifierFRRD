@@ -1,4 +1,4 @@
-# attendanceVerifier
+# attendanceVerifierFFRD
 ## WebApp para verificar Asistencia al Foro: "Feminicidio: Retos y desafíos en la impartición de justicia"
 
 - El usuario ingresa al sitio mediante el escaneo de un QR.
