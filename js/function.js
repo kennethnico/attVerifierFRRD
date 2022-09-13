@@ -20,6 +20,7 @@ function enviarDatosAsistente(){
     //valores de los inputs
     nom=document.checker.nom.value;
     mail=document.checker.email.value;
+    adsc=document.checker.ads.value;
     ub=document.getElementById('location').innerText;
     //instanciamos el objetoAjax
     ajax=objetoAjax();
@@ -37,11 +38,11 @@ function enviarDatosAsistente(){
     }
     ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     //enviando los valores
-    ajax.send("nnn="+nom+"&eee="+mail+"&loca="+ub)
+    ajax.send("nnn="+nom+"&eee="+mail+"&ads="+adsc+"&loca="+ub)
 }
 function limpiarCampos(){
     document.checker.nom.value="";
     document.checker.email.value="";
-    //document.checker.loc.value="";
+    document.checker.ads.value="";
     document.checker.nom.focus();
 }
