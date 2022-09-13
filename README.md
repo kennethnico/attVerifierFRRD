@@ -1,5 +1,5 @@
 # attendanceVerifier
-## WebApp para verificar Asistencias al Ciclo de Conferencias 2022: Igualdad - Género
+## WebApp para verificar Asistencia al Foro: "Feminicidio: Retos y desafíos en la impartición de justicia"
 
 - El usuario ingresa al sitio mediante el escaneo de un QR.
 - Después, proporciona los mismos datos que en su registro previo.
